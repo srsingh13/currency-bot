@@ -8,16 +8,19 @@ from json import dumps,loads
 api = Api(app)
 
 class Convert(Resource):
-    def get(self,fromCurrency,toCurrency,value):
-        if request.method == "GET":
+    def post(self):
+        if request.method == "POST":
             url = 'https://api.fixer.io/latest'
-            params = {'base': fromCurrency,'symbols': toCurrency}
-            res = get(url,params).json()
-            rate = res['rates'][toCurrency]
-##            resText = "The value of " + request.data['value']
-##            + " " + request.data['from'] + " in " + request.data['to']
-##            + " is " + rate
+            fromCurrency = request.form['from']
+            toCurrency = request.form['to']
+            value = request.form['value']
             
-            return rate*value
+            params = {'base': fromCurrency,'symbols': toCurrency}
+            
+            response = get(url,params).json()
+            rate = response['rates'][toCurrency]
+            return str(rate*value)
+        else:
+            return make_response("Bad request",300)
 
-api.add_resource(Convert, '/Convert?from=<string:fromCurrenct>&value=<int:value>&to=<string:toCurrency>')
+api.add_resource(Convert, 'Convert')
