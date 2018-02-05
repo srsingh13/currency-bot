@@ -23,4 +23,4 @@ class Convert(Resource):
         else:
             return make_response("Bad request",300)
 
-api.add_resource(Convert, 'Convert')
+api.add_resource(Convert, '/Convert')
