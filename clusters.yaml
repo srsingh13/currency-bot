@@ -1,0 +1,7 @@
+- alias: currency
+  config:
+    configmap: controller-conf
+    namespace: bottled87-hasura
+  data: null
+  kubeContext: bottled87
+  name: bottled87
