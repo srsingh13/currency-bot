@@ -20,4 +20,4 @@ class Convert(Resource):
             
             return rate*value
 
-api.add_resource(Convert, '/Convert?from=<string:fromCurrenct>&to=<string:toCurrency>&value=<integer:value>')
+api.add_resource(Convert, '/Convert?from=<string:fromCurrenct>&to=<string:toCurrency>&value=<int:value>')
