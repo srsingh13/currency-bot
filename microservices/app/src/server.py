@@ -21,9 +21,9 @@ class Convert(Resource):
             rate = response['rates'][toCurrency]
             newValue = int(float(rate)*float(value))
 
-            text = str(value) + " " + fromCurrency " is equivalent to " + str(newValue) + " " + toCurrency
+            #text = str(value) + " " + fromCurrency " is equivalent to " + str(newValue) + " " + toCurrency
             
-            return text
+            return newValue
         else:
             return make_response("Bad request",300)
 
