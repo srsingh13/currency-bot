@@ -19,8 +19,7 @@ class Convert(Resource):
             
             response = get(url,params).json()
             rate = response['rates'][toCurrency]
-            answer = rate*value
-            return str(answer)
+            return rate
         else:
             return make_response("Bad request",300)
 
