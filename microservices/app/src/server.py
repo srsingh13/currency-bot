@@ -23,7 +23,7 @@ class Convert(Resource):
 
             text = str(value) + " " + fromCurrency " is equivalent to " + str(newValue) + " " + toCurrency + ""
             
-            return newValue
+            return text
         else:
             return make_response("Bad request",300)
 
